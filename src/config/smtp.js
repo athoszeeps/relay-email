@@ -3,17 +3,17 @@
 const nodemailer = require('nodemailer');
 const env = require('./env');
 
-const transporter = nodemailer.createTransport({
+const transportConfig = {
   host: env.SMTP_HOST,
   port: env.SMTP_PORT,
   secure: false,
-  auth: {
-    user: env.SMTP_USER,
-    pass: env.SMTP_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: true,
-  },
-});
+  tls: { rejectUnauthorized: true },
+};
+
+if (env.SMTP_PASSWORD) {
+  transportConfig.auth = { user: env.SMTP_USER, pass: env.SMTP_PASSWORD };
+}
+
+const transporter = nodemailer.createTransport(transportConfig);
 
 module.exports = transporter;

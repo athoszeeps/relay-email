@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 
-const required = ['DATABASE_URL', 'SMTP_PASSWORD', 'RELAY_AUTH_TOKEN'];
+const required = ['DATABASE_URL', 'RELAY_AUTH_TOKEN'];
 
 for (const key of required) {
   if (!process.env[key]) {
