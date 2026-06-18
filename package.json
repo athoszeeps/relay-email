@@ -1,0 +1,27 @@
+{
+  "name": "relay-email",
+  "version": "1.0.0",
+  "description": "Microsserviço relay SMTP intermediário",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "test": "node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.0.1",
+    "express-rate-limit": "^7.4.1",
+    "nodemailer": "^6.9.16",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
