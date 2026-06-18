@@ -47,7 +47,7 @@ RELAY_TOKEN=$(openssl rand -hex 32)
 cat > .env << EOF
 NODE_ENV=production
 PORT=3001
-DATABASE_URL=sqlserver://147.93.11.111:1433;database=zeeps_relay;user=sa;password=${SA_PASSWORD};encrypt=true;trustServerCertificate=false
+DATABASE_URL=sqlserver://147.93.11.111:1433;database=zeeps_relay;user=sa;password=${SA_PASSWORD};encrypt=true;trustServerCertificate=true
 SMTP_HOST=smtp.office365.com
 SMTP_PORT=587
 SMTP_USER=envios@zeeps.com.br
