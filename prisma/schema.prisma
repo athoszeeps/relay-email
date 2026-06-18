@@ -14,7 +14,7 @@ model EmailLog {
   subject     String      @db.NVarChar(500)
   body        String      @db.NVarChar(Max)
   replyTo     String?     @db.NVarChar(255)
-  status      EmailStatus @default(pending)
+  status      String      @default("pending") @db.NVarChar(20)
   attempts    Int         @default(0)
   lastError   String?     @db.NVarChar(Max)
   createdAt   DateTime    @default(now())
@@ -23,11 +23,4 @@ model EmailLog {
 
   @@index([status, createdAt])
   @@map("email_logs")
-}
-
-enum EmailStatus {
-  pending
-  sent
-  failed
-  retrying
 }
